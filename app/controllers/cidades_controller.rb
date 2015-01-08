@@ -6,6 +6,9 @@ class CidadesController < ApplicationController
 
 
     def show
+         # @cidades = @estado.cidades.order("created_at DESC")
+        @cidades = @estado.cidades.order("name DESC")
+        @lojas = @cidade.lojas.all
     end
 
     def new

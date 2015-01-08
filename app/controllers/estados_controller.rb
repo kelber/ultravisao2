@@ -7,6 +7,7 @@ class EstadosController < ApplicationController
     end
 
     def show    
+        @cidades = @estado.cidades.order("created_at DESC")
     end
 
     def new

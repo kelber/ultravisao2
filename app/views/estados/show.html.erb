@@ -10,7 +10,7 @@
 <hr>
 <% @estado.cidades.each do |cidade|  %>
 	<h3><%= link_to cidade.name , estado_cidade_path(@estado, cidade) %></h3>
-			<%= link_to 'Deletar', estado_cidade_path(@estado, cidade), method: :delete, data: { confirm: "Voce tem certeza?" } , class: "btn btn-danger" %>
+			<%= link_to 'Deletar', estado_cidade_path(@estado, cidade), method: :delete, data: { confirm: "Voce tem certeza?" } , class: "btn btn-sm btn-danger" %>
 <% end %>
 
 
