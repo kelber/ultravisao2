@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
 
   
+  devise_for :managers
+
    root 'welcome#index'
 
    get 'sobre-a-ultravisao', to: 'welcome#sobre', as: :sobre
    # get 'welcome/index'   
-   get 'welcome/lojas'
+   get 'ultravisao-no-brasil', to: 'estados#index', as: :estados
    get 'welcome/franquias'
    get 'welcome/ultrabook'
    get 'welcome/contato'
