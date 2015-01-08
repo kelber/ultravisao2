@@ -9,9 +9,9 @@ Rails.application.routes.draw do
    get 'welcome/ultrabook'
    get 'welcome/contato'
 
-    resources :estados
-
-
+    resources :estados do
+        resources :cidades
+    end
 
 end
 

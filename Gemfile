@@ -21,7 +21,7 @@ group :development , :test  do
 end
 
 group :test do
-    gem 'capybara', '~> 2.4.4'
+    gem 'capybara'
     gem 'factory_girl_rails'    # cria factories when active records objects?
     gem 'shoulda-matchers'       # powerful matches for testing models & controllers
 end

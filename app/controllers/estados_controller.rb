@@ -6,7 +6,7 @@ class EstadosController < ApplicationController
         @estados = Estado.all
     end
 
-    def show
+    def show    
     end
 
     def new
