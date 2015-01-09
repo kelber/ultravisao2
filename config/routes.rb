@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  
   devise_for :managers
 
    root 'welcome#index'
@@ -19,7 +18,13 @@ Rails.application.routes.draw do
        end
 
 
-    resources :vehicle_brands
+    resources :vehicle_brands do
+      resources :vehicle_names
+    end
+
+
+
+
 
     end
 

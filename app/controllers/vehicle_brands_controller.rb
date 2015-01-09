@@ -5,9 +5,11 @@ class VehicleBrandsController < ApplicationController
 
   def index
     @vehicle_brands = VehicleBrand.all.order("name ASC")
+   # @vehicle_names = VehicleName.all --> caso use count para registros
   end
 
   def show
+     @vehicle_names = @vehicle_brand.vehicle_names.order("created_at DESC")
   end
 
   def new

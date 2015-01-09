@@ -1,0 +1,11 @@
+<%= simple_form_for([@vehicle_brand, @vehicle_name]) do |f| %>
+	<%= f.input :name %>
+	<%= f.input :year %>
+	<%= f.input :obs , input_html: { rows: "5" } %>
+
+
+	<br>
+	<%= f.button :submit,"Cadastrar" , class: "btn btn-primary" %>
+
+
+<% end %>
