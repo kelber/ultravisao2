@@ -6,4 +6,9 @@ module ApplicationHelper
    end
 
    
+   # def full_namevistoriador
+   # 		current_vistoriadore.name 
+   # end	
+
+
 end

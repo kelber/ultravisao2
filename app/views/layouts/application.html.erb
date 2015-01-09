@@ -24,9 +24,12 @@
 		 </a>
 	
 	</div>
-
+<!-- adm header -->
 <% if manager_signed_in? %>
 	<%= render 'layouts/headeradmin' %>
+<!-- vistoriador header -->
+<% elsif vistoriadore_signed_in? %>
+	<%= render 'layouts/headervistoriadore' %>
 <% else %>
 <!-- normal header -->
 	<%= render 'layouts/header' %>
