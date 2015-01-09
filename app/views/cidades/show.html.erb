@@ -1,14 +1,22 @@
 <h1><%= image_tag('logotipo.png', size: "100x100", alt: "Ultravisao") %>  <%= @cidade.name %></h1>
 
 
-<%= link_to 'Voltar', estados_path %>
+<%= link_to 'Voltar', estados_path, class: "btn btn-default" %>
 <br>
+<% if manager_signed_in? %>
 <%= link_to 'Cadastrar Loja', new_estado_cidade_loja_path(@estado, @cidade), class: "btn btn-primary" %>
+<% end %>
+
+
 <hr>
+
 
 <% @cidade.lojas.each do |loja| %>
 	<h3><%= link_to loja.name, estado_cidade_loja_path(@estado, @cidade, loja) %></h3>
+<% if manager_signed_in? %>
 	<%= link_to 'Editar', edit_estado_cidade_loja_path(@estado, @cidade, loja), class: "btn btn-info" %>
 	<%= link_to 'Deletar', estado_cidade_loja_path(@estado, @cidade, loja), method: :delete, data: { confirm: "Voce tem certeza?" } , class: "btn btn-danger" %>
-	
+    <% end %>
+    
+
 <% end %>

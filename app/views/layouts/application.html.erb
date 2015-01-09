@@ -25,9 +25,15 @@
 	
 	</div>
 
+<% if manager_signed_in? %>
+	<%= render 'layouts/headeradmin' %>
+<% else %>
 <!-- normal header -->
-<%= render 'layouts/header' %>
+	<%= render 'layouts/header' %>
+<% end %>
+
 </nav>
+
 
 
 

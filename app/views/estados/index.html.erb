@@ -1,6 +1,7 @@
 <h1><%= image_tag("logotipo.png", size: "100x100", alt: "ultravisao")  %> Ultravisão no Brasil </h1>
+<% if manager_signed_in? %>
 <%= link_to 'Cadastrar Estado', new_estado_path , class: "btn btn-primary" %>
-<br>
+<% end %>
 <br>
 <%= link_to 'Voltar', root_path , class: "btn btn-default" %>
 <hr>
