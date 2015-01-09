@@ -18,6 +18,9 @@ Rails.application.routes.draw do
           end
        end
 
+
+    resources :vehicle_brands
+
     end
 
 # get 'qualquer coisa', to: 'controller#path', as: :verbo

@@ -1,0 +1,14 @@
+<h1><%= image_tag("logotipo.png", size: "100x100", alt: "ultravisao")  %> Marcas de veículos </h1>
+<% if manager_signed_in? %>
+<%= link_to 'Cadastrar Marca', new_vehicle_brand_path , class: "btn btn-primary" %>
+<% end %>
+<br>
+<br>
+<%= link_to 'Voltar', root_path , class: "btn btn-default" %>
+<hr>
+<% @vehicle_brands.each do |b| %>
+	<h3><%= link_to b.name, b %></h3>
+	<% if manager_signed_in? %>
+			<%= link_to 'Editar', edit_vehicle_brand_path(b) , class: "btn btn-info" %>
+	<% end %>
+<% end %>

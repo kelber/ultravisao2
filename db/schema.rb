@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150108191105) do
+ActiveRecord::Schema.define(version: 20150109131015) do
 
   create_table "cidades", force: true do |t|
     t.string   "name"
@@ -56,5 +56,11 @@ ActiveRecord::Schema.define(version: 20150108191105) do
 
   add_index "managers", ["email"], name: "index_managers_on_email", unique: true
   add_index "managers", ["reset_password_token"], name: "index_managers_on_reset_password_token", unique: true
+
+  create_table "vehicle_brands", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
