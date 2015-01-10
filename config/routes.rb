@@ -3,16 +3,7 @@ Rails.application.routes.draw do
   devise_for :franqueados
   devise_for :vistoriadores
 
-  devise_for :managers, 
-         path: "auth", 
-         path_names: { 
-         sign_in: 'login',
-         sign_out: 'logout', 
-         password: 'secret', 
-         confirmation: 'verification',
-         unlock: 'unblock',
-         registration: 'register',
-         sign_up: 'cmon_let_me_in' }
+  devise_for :managers
 
  
 
@@ -20,7 +11,6 @@ Rails.application.routes.draw do
 
    get 'sobre-a-ultravisao', to: 'welcome#sobre', as: :sobre
    # get 'welcome/index'   
-   get 'ultravisao-no-brasil', to: 'estados#index', as: :estados
    get 'welcome/franquias'
    get 'welcome/ultrabook'
    get 'welcome/contato'
