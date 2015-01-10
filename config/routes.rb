@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :franqueados
   devise_for :vistoriadores
 
   devise_for :managers, 

@@ -27,6 +27,9 @@
 <!-- adm header -->
 <% if manager_signed_in? %>
 	<%= render 'layouts/headeradmin' %>
+	<!-- franqueado header -->
+<% elsif franqueado_signed_in? %>
+	<%= render 'layouts/headerfranqueado' %>
 <!-- vistoriador header -->
 <% elsif vistoriadore_signed_in? %>
 	<%= render 'layouts/headervistoriadore' %>

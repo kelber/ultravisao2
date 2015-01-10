@@ -6,6 +6,10 @@ module ApplicationHelper
    end
 
    
+   def full_franqueado
+   		current_franqueado.email  +  " ( " " #{current_franqueado.name}" " )"
+   end
+
    # def full_namevistoriador
    # 		current_vistoriadore.name 
    # end	
