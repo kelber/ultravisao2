@@ -1,6 +1,6 @@
 
 <%= simple_form_for([@vehicle_brand, @vehicle_name, @comments.new] , html:  { multipart:  true } )  do |f| %>
-<%= f.input :body , label: "Comentario:"  %>
+<%= f.input :body , label: "Comentario:" , placeholder: "Coloque a foto do Chassi ou Motor e tire suas dúvidas" %>
 <%= f.file_field :image %>
 
 <br>
