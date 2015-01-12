@@ -19,15 +19,39 @@
 
 
 <% @comments.each do |comment| %>
-<div class="well">
 
-  <h3 align="left">  <%= image_tag comment.image.thumb('400x200').url if comment.image_stored? %>
+   
+<div class="well">
+	
+  <h3 align="left">  <%= image_tag comment.image.thumb('400x200').url if comment.image_stored?  %>
  	 <%=  comment.body %></h3>
 	<p><%= comment.manager_id if current_manager %></p>
 	<p><%= comment.franqueado_id if current_franqueado %></p>
 	<p><%= comment.vistoriadore_id if current_vistoriadore %></p>
-	</div>
+	
+	<%= link_to like_vehicle_brand_vehicle_name_comment_path(@vehicle_brand, @vehicle_name, comment), method: :get, class: "btn btn-primary" do %>
+			<span class="fa fa-thumbs-o-up"> Aprovado |</span>
+			<%= comment.get_upvotes.size %>
+			<% end %>
+
+
+		<%= link_to dislike_vehicle_brand_vehicle_name_comment_path(@vehicle_brand, @vehicle_name, comment), method: :get, class: "btn btn-danger" do %>
+			<span class="fa fa-thumbs-o-down"> Desaprovado |</span>
+			<%= comment.get_downvotes.size %>
+			<% end %>
+				 
+</div>
+		
+
+
+
+
+
+	
+
 <hr>
 
 <% end %>
+
+
 

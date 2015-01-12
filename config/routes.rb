@@ -24,7 +24,13 @@ Rails.application.routes.draw do
 
     resources :vehicle_brands do
       resources :vehicle_names do
-        resources :comments
+        resources :comments do
+          member do
+          get "like", to: "comments#upvote"
+          get "dislike", to: "comments#downvote"
+          
+          end
+        end
       end
     end
 
