@@ -6,6 +6,7 @@ class CreateComments < ActiveRecord::Migration
       t.references :manager, index: true
       t.references :franqueado, index: true
       t.references :vistoriadore, index: true
+      
 
       t.timestamps
     end

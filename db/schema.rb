@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150112095159) do
+ActiveRecord::Schema.define(version: 20150112120256) do
 
   create_table "cidades", force: true do |t|
     t.string   "name"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 20150112095159) do
     t.integer  "vistoriadore_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_uid"
+    t.string   "image_name"
   end
 
   add_index "comments", ["franqueado_id"], name: "index_comments_on_franqueado_id"

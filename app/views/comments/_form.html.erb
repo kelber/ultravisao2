@@ -1,8 +1,10 @@
 
-<%= simple_form_for([@vehicle_brand, @vehicle_name, @comments.new]) do |f| %>
-<%= f.input :body %>
+<%= simple_form_for([@vehicle_brand, @vehicle_name, @comments.new] , html:  { multipart:  true } )  do |f| %>
+<%= f.input :body , label: "Comentario:"  %>
+<%= f.file_field :image %>
 
-
+<br>
 <%= f.button :submit , "Cadastre Comentário", class: "btn btn-primary" %>
 
 <% end %>
+<hr>

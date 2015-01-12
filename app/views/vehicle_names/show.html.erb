@@ -19,10 +19,15 @@
 
 
 <% @comments.each do |comment| %>
-<h3><%=  comment.body %></h3>
+<div class="well">
+
+  <h3 align="left">  <%= image_tag comment.image.thumb('400x200').url if comment.image_stored? %>
+ 	 <%=  comment.body %></h3>
 	<p><%= comment.manager_id if current_manager %></p>
 	<p><%= comment.franqueado_id if current_franqueado %></p>
 	<p><%= comment.vistoriadore_id if current_vistoriadore %></p>
+	</div>
 <hr>
 
 <% end %>
+

@@ -13,7 +13,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'devise'
 gem 'simple_form', '~> 3.1.0' 
-
+gem 'dragonfly', '~> 1.0.7'
 
 group :development , :test  do
     gem 'sqlite3'
