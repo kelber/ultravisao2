@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150110145337) do
+ActiveRecord::Schema.define(version: 20150112095159) do
 
   create_table "cidades", force: true do |t|
     t.string   "name"
@@ -19,6 +19,21 @@ ActiveRecord::Schema.define(version: 20150110145337) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "comments", force: true do |t|
+    t.text     "body"
+    t.integer  "vehicle_name_id"
+    t.integer  "manager_id"
+    t.integer  "franqueado_id"
+    t.integer  "vistoriadore_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["franqueado_id"], name: "index_comments_on_franqueado_id"
+  add_index "comments", ["manager_id"], name: "index_comments_on_manager_id"
+  add_index "comments", ["vehicle_name_id"], name: "index_comments_on_vehicle_name_id"
+  add_index "comments", ["vistoriadore_id"], name: "index_comments_on_vistoriadore_id"
 
   create_table "estados", force: true do |t|
     t.string   "name"

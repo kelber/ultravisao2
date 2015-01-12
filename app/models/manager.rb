@@ -5,6 +5,6 @@ class Manager < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 
-   
+  has_many :comments
 
 end

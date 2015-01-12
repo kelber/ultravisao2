@@ -23,7 +23,9 @@ Rails.application.routes.draw do
 
 
     resources :vehicle_brands do
-      resources :vehicle_names
+      resources :vehicle_names do
+        resources :comments
+      end
     end
 
 

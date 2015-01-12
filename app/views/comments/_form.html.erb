@@ -1,0 +1,8 @@
+
+<%= simple_form_for([@vehicle_brand, @vehicle_name, @comments.new]) do |f| %>
+<%= f.input :body %>
+
+
+<%= f.button :submit , "Cadastre Comentário", class: "btn btn-primary" %>
+
+<% end %>
