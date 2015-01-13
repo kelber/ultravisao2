@@ -55,11 +55,12 @@
 			<%= comment.get_downvotes.size %>
 			<% end %>
 				 
-			
+			<% if current_manager %>
 				 
-		
-			 <%= link_to 'Realizado', complete_vehicle_brand_vehicle_name_comment_path(@vehicle_brand, @vehicle_name, comment) , method: :patch , class: "btn btn-warning" %>
-		
+		<% if comment.completed_at.blank? %>
+			 <%= link_to 'Resolvido?', complete_vehicle_brand_vehicle_name_comment_path(@vehicle_brand, @vehicle_name, comment) , method: :patch ,data: { confirm: "Marcar como resolvido ?" }, class: "btn btn-warning" %>
+		<% end %>
+			<% end %>
 
 			 <!-- f.input :custom_field, :as => :boolean, :input_html => { :checked => "checked" } -->
 
