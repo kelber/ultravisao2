@@ -11,17 +11,24 @@ end
 
 
 def new
-	@comment = Comment.new
+	#@comment = Comment.new
+	  @comment = current_manager_id.comments.new if current_manager
+	  @comment = current_franqueado_id.comments.new if current_franqueado
+	  @comment = current_vistoriadore_id.comments.new if current_vistoriadore
 end
 
 def create
 @vehicle_brand = VehicleBrand.find(params[:vehicle_brand_id])
 @vehicle_name = VehicleName.find(params[:vehicle_name_id])
-@comment = Comment.new(comment_params)
-@comment.manager_id = current_manager.id if current_manager
-@comment.franqueado_id = current_franqueado.id if current_franqueado
-@comment.vistoriadore_id = current_vistoriadore.id if current_vistoriadore
-@comment.vehicle_name_id = @vehicle_name.id
+@comment = current_manager.comments.new(comment_params) if current_manager
+	 @comment = current_franqueado.comments.new(comment_params) if current_franqueado
+	 @comment = current_vistoriadore.comments.new(comment_params) if current_vistoriadore
+
+
+# @comment.manager_id = current_manager.id if current_manager
+# @comment.franqueado_id = current_franqueado.id if current_franqueado
+# @comment.vistoriadore_id = current_vistoriadore.id if current_vistoriadore
+
 
 @comment.vehicle_name_id = @vehicle_name.id
 if @comment.save

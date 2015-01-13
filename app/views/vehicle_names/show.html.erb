@@ -26,12 +26,19 @@
   <h3 align="left">  <%= image_tag comment.image.thumb('400x200').url if comment.image_stored?  %>
  	 <%=  comment.body %></h3>
 
-<!-- 
-	<p><%= comment.manager.name if comment.manager_id %></p>
-	<p><%= comment.franqueado.name if current_franqueado %></p>
-	<p><%= comment.vistoriadore if current_vistoriadore %></p>
 
-	 -->
+	<% if comment.manager_id %>
+			<p><%= comment.manager.name  %></p>
+			<p><%= comment.manager.email %></p>
+	<% elsif comment.franqueado_id %>
+			<p><%= comment.franqueado.name %></p>
+			<p><%= comment.franqueado.email %></p>
+
+	<% elsif comment.vistoriadore_id %>
+	<p><%= comment.vistoriadore.name %></p>
+	<p><%= comment.vistoriadore.email %></p>
+	<% end %> 
+
 	<h4>Postado: <%= time_ago_in_words(comment.created_at) %></h4>
 	<%= link_to like_vehicle_brand_vehicle_name_comment_path(@vehicle_brand, @vehicle_name, comment), method: :get, class: "btn btn-primary" do %>
 			<span class="fa fa-thumbs-o-up"> Aprovado |</span>
@@ -47,7 +54,7 @@
 </div>
 		
 		<!-- 
-# if current_manager
+# if current_managerr_id
 # if current_franqueado
 # if current_vistoriadore
 
