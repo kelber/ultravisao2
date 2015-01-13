@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 
-	before_action :find_comment , only: [:show, :edit, :update, :upvote, :downvote]
-
+	before_action :find_comment , only: [:show, :edit, :update, :upvote, :downvote, :complete]
+	before_action :find_all, only: [:complete] 
 
 def index
 	@comments = Comment.all
@@ -15,9 +15,6 @@ def show
 
 
 end
-
-
-
 
 
 
@@ -52,11 +49,20 @@ end
 def edit
 end
 def update
+	@vehicle_brand = VehicleBrand.find(params[:vehicle_brand_id])
+@vehicle_name = VehicleName.find(params[:vehicle_name_id])
 	if @comment.update(comment_params)
 		redirect_to vehicle_brand_vehicle_name_path(@vehicle_brand, @vehicle_name), notice: "Atualizado comentário com sucesso"
 	else
 		render 'show'
 	end
+end
+
+
+def complete
+	@ve
+	@comment.update_attribute(:completed_at , Time.now)
+	redirect_to vehicle_brand_vehicle_name_path(@vehicle_brand, @vehicle_name), notice: "Marcado como suporte realizado"
 end
 
 
@@ -87,6 +93,13 @@ end
 
 
 private
+
+def find_all
+	@vehicle_brand = VehicleBrand.find(params[:vehicle_brand_id])
+	@vehicle_name = VehicleName.find(params[:vehicle_name_id])
+	@comment = Comment.find(params[:id])
+
+end
 
 
 def find_comment

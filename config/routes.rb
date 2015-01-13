@@ -37,8 +37,12 @@ Rails.application.routes.draw do
           member do
           get "like", to: "comments#upvote"
           get "dislike", to: "comments#downvote"
-          
           end
+
+          member do 
+            patch :complete 
+          end 
+
         end
       end
     end

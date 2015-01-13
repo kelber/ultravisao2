@@ -41,6 +41,9 @@
 	<% end %> 
 
 	<h5><strong>Postado: <%= time_ago_in_words(comment.created_at) %></strong></h5>
+
+	 <%= link_to 'Ampliar', vehicle_brand_vehicle_name_comment_path(@vehicle_brand, @vehicle_name, comment) , class: "btn btn-info" %>
+	 
 	<%= link_to like_vehicle_brand_vehicle_name_comment_path(@vehicle_brand, @vehicle_name, comment), method: :get, class: "btn btn-default" do %>
 			<span class="fa fa-thumbs-o-up"> Aprovado |</span>
 			<%= comment.get_upvotes.size %>
@@ -52,8 +55,14 @@
 			<%= comment.get_downvotes.size %>
 			<% end %>
 				 
-			 <%= link_to 'Ampliar', vehicle_brand_vehicle_name_comment_path(@vehicle_brand, @vehicle_name, comment) , class: "btn btn-info" %>
+			
 				 
+		
+			 <%= link_to 'Realizado', complete_vehicle_brand_vehicle_name_comment_path(@vehicle_brand, @vehicle_name, comment) , method: :patch , class: "btn btn-warning" %>
+		
+
+			 <!-- f.input :custom_field, :as => :boolean, :input_html => { :checked => "checked" } -->
+
 </div>
 <hr>
 

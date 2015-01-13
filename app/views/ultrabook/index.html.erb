@@ -2,40 +2,43 @@
 <hr>
 
 	
-	<h2 align="center">Veículos | <%= @comments.count %></h2>
+	<h2 align="center">Suporte: Veículos em aberto | colocar n.</h2>
 	<hr>
-		<% @comments.each do |comment| %>
+	<% @comments.each do |comment| %>
+			
+		<div class="container">
+		
+ 			<% if comment.completed_at.blank? %>
+ 			<div class="well">
+ 				<h3 align="left">
+		  	<%= comment.vehicle_name.name %>
+		  	<br>
+		    <%= image_tag comment.image.thumb('400x200').url if comment.image_stored?  %>
+		 	  <%=  comment.body %>
+  	</h3>
+		  <% if comment.manager_id %>
+				<p><%= comment.manager.name  %></p>
+				<p><%= comment.manager.email %></p>
+		  <% elsif comment.franqueado_id %>
+				<p><%= comment.franqueado.name %></p>
+				<p><%= comment.franqueado.email %></p>
+    	 <% elsif comment.vistoriadore_id %>
+		    <h4>Postado por: <i><%= comment.vistoriadore.name %>  | <%= comment.vistoriadore.email %></i></h4>
+			 <% end %> 
+		    	<h5><strong>Postado: <%= time_ago_in_words(comment.created_at) %></strong></h5>
+			    <%= link_to 'Ampliar', vehicle_brands_path(@vehicle_brand) , class: "btn btn-info" %>
+   			<br>	
 
-   
-<div class="well">
-	
-  <h3 align="left"> 
-  	<%= comment.vehicle_name.name %>
-  	<br>
-   <%= image_tag comment.image.thumb('400x200').url if comment.image_stored?  %>
- 	 <%=  comment.body %></h3>
+   			
 
 
-
-	<% if comment.manager_id %>
-			<p><%= comment.manager.name  %></p>
-			<p><%= comment.manager.email %></p>
-	<% elsif comment.franqueado_id %>
-			<p><%= comment.franqueado.name %></p>
-			<p><%= comment.franqueado.email %></p>
-
-	<% elsif comment.vistoriadore_id %>
-	<h4>Postado por: <i><%= comment.vistoriadore.name %>  | <%= comment.vistoriadore.email %></i></h4>
-	<% end %> 
-
-	<h5><strong>Postado: <%= time_ago_in_words(comment.created_at) %></strong></h5>
-	
-	
-				 											
-			 <%= link_to 'Ampliar', vehicle_brands_path(@vehicle_brand) , class: "btn btn-info" %>
-				 
-</div>
-<hr>
 
 <% end %>
+  </div>
+  </div>
+
+	<% end %>
+
+
+
 
