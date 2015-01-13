@@ -1,0 +1,42 @@
+<%= link_to 'Voltar', vehicle_brand_vehicle_name_path(@vehicle_brand, @vehicle_name), class: "btn btn-default" %>
+
+<br>
+
+<div class="well">
+	
+  <h3 align="center"> 
+  
+   <%= image_tag @comment.image.thumb('600x600').url if @comment.image_stored?  %>
+  
+   <br>
+   <br>
+
+ 	 <i><%=  @comment.body %></i></h3>
+
+
+<hr>
+	<% if @comment.manager_id %>
+			<h4>Postado por: <i><%= @comment.manager.name %>  | <%= @comment.manager.email %></i></h4>
+
+	<% elsif @comment.franqueado_id %>
+			<h4>Postado por: <i><%= @comment.franqueado.name %>  | <%= @comment.franqueado.email %></i></h4>
+
+	<% elsif @comment.vistoriadore_id %>
+	<h4>Postado por: <i><%= @comment.vistoriadore.name %>  | <%= @comment.vistoriadore.email %></i></h4>
+	<% end %> 
+
+	<h5><strong>Postado: <%= time_ago_in_words(@comment.created_at) %></strong></h5>
+	<%= link_to like_vehicle_brand_vehicle_name_comment_path(@vehicle_brand, @vehicle_name, @comment), method: :get, class: "btn btn-default" do %>
+			<span class="fa fa-thumbs-o-up"> Aprovado |</span>
+			<%= @comment.get_upvotes.size %>
+			<% end %>
+
+
+		<%= link_to dislike_vehicle_brand_vehicle_name_comment_path(@vehicle_brand, @vehicle_name, @comment), method: :get, class: "btn btn-default" do %>
+			<span class="fa fa-thumbs-o-down"> Desaprovado |</span>
+			<%= @comment.get_downvotes.size %>
+			<% end %>
+				 
+			
+				 
+</div>

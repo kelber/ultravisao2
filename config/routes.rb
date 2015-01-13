@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'ultrabook/index'
+
+  get 'ultrabook/show'
+
+  get 'ultrabook/edit'
+
   devise_for :franqueados
   devise_for :vistoriadores
 

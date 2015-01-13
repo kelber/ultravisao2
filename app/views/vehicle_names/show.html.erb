@@ -23,7 +23,9 @@
    
 <div class="well">
 	
-  <h3 align="left">  <%= image_tag comment.image.thumb('400x200').url if comment.image_stored?  %>
+  <h3 align="left"> 
+  
+   <%= image_tag comment.image.thumb('400x200').url if comment.image_stored?  %>
  	 <%=  comment.body %></h3>
 
 
@@ -49,6 +51,8 @@
 			<span class="fa fa-thumbs-o-down"> Desaprovado |</span>
 			<%= comment.get_downvotes.size %>
 			<% end %>
+				 
+			 <%= link_to 'Ampliar', vehicle_brand_vehicle_name_comment_path(@vehicle_brand, @vehicle_name, comment) , class: "btn btn-info" %>
 				 
 </div>
 <hr>
