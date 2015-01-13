@@ -9,11 +9,14 @@ Rails.application.routes.draw do
 
    root 'welcome#index'
 
+
+
    get 'sobre-a-ultravisao', to: 'welcome#sobre', as: :sobre
    # get 'welcome/index'   
    get 'welcome/franquias'
-   get 'welcome/ultrabook'
+   # get 'welcome/ultrabook'
    get 'welcome/contato'
+   # tentativa get 'welcome/principal'  # , to: 'welcome#principal', as: :main
 
     resources :estados do
         resources :cidades, except:[:index, :update] do
@@ -34,7 +37,7 @@ Rails.application.routes.draw do
       end
     end
 
-
+   resources :ultrabook
 
 
 

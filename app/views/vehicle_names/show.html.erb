@@ -35,33 +35,22 @@
 			<p><%= comment.franqueado.email %></p>
 
 	<% elsif comment.vistoriadore_id %>
-	<p><%= comment.vistoriadore.name %></p>
-	<p><%= comment.vistoriadore.email %></p>
+	<h4>Postado por: <i><%= comment.vistoriadore.name %>  | <%= comment.vistoriadore.email %></i></h4>
 	<% end %> 
 
-	<h4>Postado: <%= time_ago_in_words(comment.created_at) %></h4>
-	<%= link_to like_vehicle_brand_vehicle_name_comment_path(@vehicle_brand, @vehicle_name, comment), method: :get, class: "btn btn-primary" do %>
+	<h5><strong>Postado: <%= time_ago_in_words(comment.created_at) %></strong></h5>
+	<%= link_to like_vehicle_brand_vehicle_name_comment_path(@vehicle_brand, @vehicle_name, comment), method: :get, class: "btn btn-default" do %>
 			<span class="fa fa-thumbs-o-up"> Aprovado |</span>
 			<%= comment.get_upvotes.size %>
 			<% end %>
 
 
-		<%= link_to dislike_vehicle_brand_vehicle_name_comment_path(@vehicle_brand, @vehicle_name, comment), method: :get, class: "btn btn-danger" do %>
+		<%= link_to dislike_vehicle_brand_vehicle_name_comment_path(@vehicle_brand, @vehicle_name, comment), method: :get, class: "btn btn-default" do %>
 			<span class="fa fa-thumbs-o-down"> Desaprovado |</span>
 			<%= comment.get_downvotes.size %>
 			<% end %>
 				 
 </div>
-		
-		<!-- 
-# if current_managerr_id
-# if current_franqueado
-# if current_vistoriadore
-
- -->
-
-	
-
 <hr>
 
 <% end %>

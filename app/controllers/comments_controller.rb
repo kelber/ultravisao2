@@ -3,10 +3,19 @@ class CommentsController < ApplicationController
 	before_action :find_comment , only: [:show, :edit, :update, :upvote, :downvote]
 
 
+def index
+	@comments = Comment.all
+
+end
+
+
 def show
 	@vehicle_brand = VehicleBrand.find(params[:vehicle_brand_id])
 	# @vehicle_name = VehicleName.find(params[:vehicle_name_id])
 end
+
+
+
 
 
 
@@ -31,11 +40,11 @@ def create
 
 
 @comment.vehicle_name_id = @vehicle_name.id
-if @comment.save
-redirect_to vehicle_brand_vehicle_name_path(@vehicle_brand, @vehicle_name), notice: "Cadastrado comentário com sucesso" 
-else
-render 'new'
-end
+	if @comment.save
+	redirect_to vehicle_brand_vehicle_name_path(@vehicle_brand, @vehicle_name), notice: "Cadastrado comentário com sucesso" 
+	else
+	render 'new'
+	end
 end
 
 def edit

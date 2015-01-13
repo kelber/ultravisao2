@@ -8,8 +8,19 @@
 <hr>
 <% elsif vistoriadore_signed_in? %>
 <h1><%= image_tag("logotipo.png", size: "100x100", tag: "ultravisao") %> Bem vindo: <%= current_vistoriadore.name %></h1>
-
 <hr>
+	<div class="well col-md-4">
+		<h3 align="center">Veículos</h3>
+		<hr>
+		<%= link_to 'Listagem' %>
+	
+
+	</div>
+
+	<div class="well col-md-offset-1 col-md-4">
+		<p>atalho para todos os Ultrabook</p>
+	</div>
+
 
 <% else %>
 <h1 id="ultra" class="animated bounceInLeft">Bem vindo a Ultravisão</h1>

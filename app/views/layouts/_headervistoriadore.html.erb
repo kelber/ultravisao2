@@ -8,12 +8,14 @@
 						<li>
 		          <%= link_to 'Cadastro veicular', vehicle_brands_path  %>				
 						</li>
+
+					
 					</ul>
 			</li>
 	   <li> 
 	   </a>
 			 <!-- full_name é definido no HELPERS -->
-			 <%= link_to current_vistoriadore.name , edit_vistoriadore_registration_path %>
+			 <%= link_to full_vistoriador , edit_vistoriadore_registration_path %>
 		 </li>
 		 <li>
 		   <%= link_to 'Logout', destroy_vistoriadore_session_path, method: :delete %>

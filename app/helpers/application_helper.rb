@@ -10,9 +10,9 @@ module ApplicationHelper
    		current_franqueado.email  +  " ( " " #{current_franqueado.name}" " )"
    end
 
-   # def full_namevistoriador
-   # 		current_vistoriadore.name 
-   # end	
+   def full_vistoriador
+   		current_vistoriadore.email +  " ( " " #{current_vistoriadore.name}" " )" 
+   end	
 
 
 end

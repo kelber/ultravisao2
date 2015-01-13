@@ -1,9 +1,8 @@
 class WelcomeController < ApplicationController
- 
- 
 
 
   def index
+    
   end
 
   def sobre
@@ -20,4 +19,11 @@ class WelcomeController < ApplicationController
   
   def contato
   end
+
+
+
+
+
+
+
 end
