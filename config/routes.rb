@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'home/index'
+
+  get 'home/show'
+
+  get 'home/edit'
+
   get 'ultrabook/index'
 
   get 'ultrabook/show'

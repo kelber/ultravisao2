@@ -1,0 +1,89 @@
+<div class="container">
+<h1><%= image_tag("logotipo.png", size: "100x100", tag: "ultravisao") %> Bem vindo: <%= current_manager.name %></h1>
+<hr>
+
+   
+    
+       <div class="col-md-6">
+     <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+         Listagem de Comentários | <%= @comments.count %>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+        <% @comments.each do |comment|  %>
+                <p><%= comment.body %> | <%= time_ago_in_words(comment.created_at) %></p>
+                   <hr>
+              <% end %>
+      </div>
+    </div>
+  </div>
+  </div>    
+       <div class="col-md-6">
+     <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapsemanager" aria-expanded="false" aria-controls="collapsemanager">
+         Listagem de Adm | <%= @managers.count %>
+        </a>
+      </h4>
+    </div>
+    <div id="collapsemanager" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+        <% @managers.each do |m|  %>
+                <p><%= m.name %> | <%= time_ago_in_words(m.created_at) %></p>
+                   <hr>
+              <% end %>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+       <div class="col-md-6">
+     <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapsefranqueados" aria-expanded="false" aria-controls="collapsefranqueados">
+         Listagem de Franqueados | <%= @franqueados.count %>
+        </a>
+      </h4>
+    </div>
+    <div id="collapsefranqueados" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+      <p>
+        <% @franqueados.each do |f|  %>
+                <p>Nome: <%= f.name %> |Criado em: <%= time_ago_in_words(f.created_at) %> |Ultimo acesso: <%= f.last_sign_in_at.strftime('%d/%m') %></p>
+                <hr>
+              <% end %>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="col-md-6">
+     <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapsevistoriadores" aria-expanded="false" aria-controls="collapsevistoriadores">
+         Listagem de Vistoriadores | <%= @vistoriadores.count %>
+        </a>
+      </h4>
+    </div>
+    <div id="collapsevistoriadores" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+      <p>
+        <% @vistoriadores.each do |f|  %>
+                <p>Nome: <%= f.name %> |Criado em: <%= time_ago_in_words(f.created_at) %> |Ultimo acesso: <%= f.last_sign_in_at.strftime('%d/%m') %></p>
+                <hr>
+              <% end %>
+      </div>
+    </div>
+  </div>
+  </div>
+
+

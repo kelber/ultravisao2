@@ -2,22 +2,16 @@
 
 <% if manager_signed_in? %>
 		<!-- Administr area --> 			  
-		<%= render partial: 'manager_view' %>
+		<%= render partial: 'home/manager_view' %>
 		
 
 <% elsif franqueado_signed_in? %>
-<h1><%= image_tag("logotipo.png", size: "100x100", tag: "ultravisao") %> Bem vindo: <%= current_franqueado.name %></h1>
+		<%= render partial: 'franqueado_view' %>
 
-<hr>
+
 <% elsif vistoriadore_signed_in? %>
-<h1><%= image_tag("logotipo.png", size: "100x100", tag: "ultravisao") %> Bem vindo: <%= current_vistoriadore.name %></h1>
-<hr>
-	<div class="well col-md-4">
-		<h3 align="center">Veículos</h3>
-		<hr>
-		<%= link_to 'Listagem' %>
-	</div>
-
+		<%= render partial: 'vistoriadore_view' %>
+		
 
 <% else %>
 		<!-- Public area --> 			  
