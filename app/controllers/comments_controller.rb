@@ -40,7 +40,7 @@ def create
 
 @comment.vehicle_name_id = @vehicle_name.id
 	if @comment.save
-	redirect_to vehicle_brand_vehicle_name_path(@vehicle_brand, @vehicle_name), notice: "Cadastrado comentário com sucesso" 
+	redirect_to vehicle_brand_vehicle_name_path(@vehicle_brand, @vehicle_name), notice: "Comentário cadastrado com sucesso" 
 	else
 	render 'new'
 	end

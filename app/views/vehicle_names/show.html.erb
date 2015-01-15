@@ -1,73 +1,80 @@
+<div class="container">
+
+<%= link_to 'Voltar' , vehicle_brands_path ,  class: "btn btn-default glyphicon glyphicon-arrow-left" %>
+<br><br>
+
+
 <div class="well">
 
 <h1 align="center"><%= @vehicle_brand.name %></h1>
 <hr>
 	<h1 align="center"><%= @vehicle_name.name %></h1>
 	<h1 align="center"><%= @vehicle_name.year %></h1>
+	<hr>
 	<p align="center"><%= @vehicle_name.obs %></p>
 
 	
 </div>
 
-<%= link_to 'Voltar' , vehicle_brands_path , class: "btn btn-default" %>
-
 
 <hr>
-<%= render 'comments/form' %>
-
-<h3>Veja Comentários | <%= @comments.count %></h3>
-
-
-<% @comments.each do |comment| %>
-
-   
 <div class="well">
-	
-  <h3 align="left"> 
-  
-   <%= image_tag comment.image.thumb('400x200').url if comment.image_stored?  %>
- 	 <%=  comment.body %></h3>
+<%= render 'comments/form' %>
+</div>
 
+<% if @comments.count > 0 %>
+	<h2>Veja Comentários <span class="badge presentation"><%= @comments.count %></span></h2>
+		<% @comments.each do |comment| %>
+		<div class="well">
+		<h3> <!--  class="col-md-10" -->
+		  <%= image_tag comment.image.thumb('400x200').url if comment.image_stored?  %>
 
-	<% if comment.manager_id %>
-			<p><%= comment.manager.name  %></p>
-			<p><%= comment.manager.email %></p>
-	<% elsif comment.franqueado_id %>
-			<p><%= comment.franqueado.name %></p>
-			<p><%= comment.franqueado.email %></p>
+		 	<i><%=  comment.body %></i>
+	 	</h3>	 	
 
-	<% elsif comment.vistoriadore_id %>
-	<h4>Postado por: <i><%= comment.vistoriadore.name %>  | <%= comment.vistoriadore.email %></i></h4>
-	<% end %> 
+		<% if comment.manager_id %>
+			<h4>Postado por: <i><%= comment.manager.name %>  | <%= comment.manager.email %></i></h4>
+		
+		<% elsif comment.franqueado_id %>
+				<h4>Postado por: <i><%= comment.franqueado.name %>  | <%= comment.franqueado.email %></i></h4>
+		<% elsif comment.vistoriadore_id %>
+		<h4>Postado por: <i><%= comment.vistoriadore.name %>  | <%= comment.vistoriadore.email %></i></h4>
+		<% end %> 
+		<h5><strong>Enviado: <%= time_ago_in_words(comment.created_at) %></strong></h5>
 
-	<h5><strong>Postado: <%= time_ago_in_words(comment.created_at) %></strong></h5>
+		
+		 <%= link_to 'Ampliar', vehicle_brand_vehicle_name_comment_path(@vehicle_brand, @vehicle_name, comment) , class: "btn btn-primary" %>
+	   <%= link_to like_vehicle_brand_vehicle_name_comment_path(@vehicle_brand, @vehicle_name, comment), method: :get, class: "btn btn-default" do %>
+				<span class="fa fa-thumbs-o-up"> Conforme |</span>
+				<%= comment.get_upvotes.size %>
+				<% end %>
 
-	 <%= link_to 'Ampliar', vehicle_brand_vehicle_name_comment_path(@vehicle_brand, @vehicle_name, comment) , class: "btn btn-info" %>
-	 
-	<%= link_to like_vehicle_brand_vehicle_name_comment_path(@vehicle_brand, @vehicle_name, comment), method: :get, class: "btn btn-default" do %>
-			<span class="fa fa-thumbs-o-up"> Aprovado |</span>
-			<%= comment.get_upvotes.size %>
-			<% end %>
-
-
-		<%= link_to dislike_vehicle_brand_vehicle_name_comment_path(@vehicle_brand, @vehicle_name, comment), method: :get, class: "btn btn-default" do %>
-			<span class="fa fa-thumbs-o-down"> Desaprovado |</span>
-			<%= comment.get_downvotes.size %>
-			<% end %>
-				 
-			<% if current_manager %>
-				 
+	  <%= link_to dislike_vehicle_brand_vehicle_name_comment_path(@vehicle_brand, @vehicle_name, comment), method: :get, class: "btn btn-default" do %>
+				<span class="fa fa-thumbs-o-down"> Não Conforme |</span>
+				<%= comment.get_downvotes.size %>
+				<% end %>
+		 
+				<% if current_manager %>
 		<% if comment.completed_at.blank? %>
-			 <%= link_to 'Resolvido?', complete_vehicle_brand_vehicle_name_comment_path(@vehicle_brand, @vehicle_name, comment) , method: :patch ,data: { confirm: "Marcar como resolvido ?" }, class: "btn btn-warning" %>
-		<% end %>
-			<% end %>
-
-			 <!-- f.input :custom_field, :as => :boolean, :input_html => { :checked => "checked" } -->
-
+				 <%= link_to 'Resolvido ?', complete_vehicle_brand_vehicle_name_comment_path(@vehicle_brand, @vehicle_name, comment) , method: :patch ,data: { confirm: "Marcar como resolvido ?" }, class: "btn btn-warning" %>
+		  	<% end %>
+	  <% end %>
+			
 </div>
 <hr>
+
+
+<% end %>
+
+<% else %>
+
+<h3><span class="glyphicon glyphicon-paperclip"> </span>
+  Não temos nada sobre este veículo, cadastre o primeiro...</h3>
+
 
 <% end %>
 
 
 
+
+</div>

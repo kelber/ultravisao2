@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Ultravisão vistorias veiculares</title>
+  <title>ULTRAVISÃO | Vistorias </title>
   <%= stylesheet_link_tag    'application' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -34,21 +34,21 @@
 <% elsif vistoriadore_signed_in? %>
 	<%= render 'layouts/headervistoriadore' %>
 <% else %>
+
+
+<div class="container">
+
 <!-- normal header -->
 	<%= render 'layouts/header' %>
 <% end %>
 
 </nav>
 
+<%= render 'layouts/alert' %>
 
 
 
 
-<div class="container">
-
-<% flash.each do |name, msg| %> 
-	<%= content_tag :div , msg, class: "alert alert-info"  %>
-<% end %>
 
 <%= yield %>
 </div>

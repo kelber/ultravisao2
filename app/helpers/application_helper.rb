@@ -15,4 +15,10 @@ module ApplicationHelper
    end	
 
 
+
+    def index
+    @comments = Comment.all.order("created_at DESC")
+  # fiz para colocar valores no header
+  end
+
 end

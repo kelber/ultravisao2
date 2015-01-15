@@ -1,10 +1,12 @@
+<div class="container">
+
 <%= simple_form_for([@estado, @cidade, @loja]) do |f| %>
 	<%= f.input :name %>
 
 	<%= f.input :endereco %>
 	<%= f.input :telefone %>
 	<%= f.input :email %>
-	<%= f.input :diretor %>
+	<%= f.input :diretor , placeholder: "Colocar nome, telefone e email neste campo" %>
 	 <%= f.input :mapa ,label: "Mapa: clicar com btn direito em cima ponto (O que há aqui? e pegar latitude e longitude do lugar) e colar", placeholder: "-23.092460, -47.214627" %>
 
 	<br>
