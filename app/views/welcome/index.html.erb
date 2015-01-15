@@ -1,10 +1,9 @@
 
 
 <% if manager_signed_in? %>
-<div class="container">
-
-<h1><%= image_tag("logotipo.png", size: "100x100", tag: "ultravisao") %> Bem vindo: <%= current_manager.name %></h1>
-<hr>
+		<!-- Administr area --> 			  
+		<%= render partial: 'manager_view' %>
+		
 
 <% elsif franqueado_signed_in? %>
 <h1><%= image_tag("logotipo.png", size: "100x100", tag: "ultravisao") %> Bem vindo: <%= current_franqueado.name %></h1>
@@ -17,173 +16,12 @@
 		<h3 align="center">Veículos</h3>
 		<hr>
 		<%= link_to 'Listagem' %>
-	
-
-	</div>
-
-	<div class="well col-md-offset-1 col-md-4">
-		<p>atalho para todos os Ultrabook</p>
 	</div>
 
 
 <% else %>
- 		
-	  <!-- Public area -->
-	  <div id="foto">
-	  	<%= image_tag("mapagrande.png")  %>
- 		</div>
-    
- 		 <div class="row">
-
-
-	    <div id="ultrapoint">
-	 			
-	 		
-	 		<h1 id="titulo_ultra" class="animated bounceInLeft col-md-offset-5 ">Bem vindo a Ultravisão</h1>
-			<h3 id="subtitulo" class="animated bounceInDown col-md-offset-6">Franquia de vistorias veiculares</h3> 
-			
-			<div class="logo animated bounceInDown col-md-offset-6">
-				<%= image_tag("logo350.png") %>
-			</div>
-
-	    </div>
-		</div>
-
-
-
-
-
-
-
-
-
-
-
-			<div class="row">
-			<h1 align="center">Serviços Ultravisão</h2>
-				<hr>
-
-			<div class="container">
-
-			<div class="col-md-6">
-			<div class="box">
-				<h2 align="center"><strong>Transferência propriedade</strong></h2>
-			</div>				
-				<p align="center">A vistoria é obrigatória para transferência e regularização do veículo.<br>
-				A Ultravisão está credenciada a vistoriar e emitir o </p>
-				<H4 align="center"><strong>LAUDO DE TRANSFERÊNCIA</strong></H4>
-				<p align="center">aprovando este para transferência de propriedade.			
-				São coletadas informações técnicas buscando adulterações nos identificadores veiculares, combatendo fraudes no veículo seus identificadores e na sua documentação.<br>
-				Lembramos que este serviço é regulamentado desde 1998 <br>pelo CONTRAN (Resolução 05/98) e a Ultravisão está habilitada pelo DENATRAN como Empresa certificada de vistoria de veículos - ECV
-				</p>
-		  </div>
-		
-
-		
-
-
-			<div class="col-md-6">
-
-				<div class="box">
-				<h2 align="center"><strong>Vistoria Veicular</strong></h2>
-				</div>
-				
-				<p align="center">Trata-se de modalidade de perícia direcionado para pessoas que querem comprar um veículo semi-novo e que se preocupa com a procedência do veículo que está adquirindo.
-				Fazemos uma análise técnica (Vistoria completa) para saber se o veículo não possui adulterações nas numerações do motor, chassi, câmbio, vidros, etiquetas, cortes estruturais, etc.
-				</p>
-
-				<hr>
-				<div class="box">
-				<h2 align="center"><strong>Tratamento de Chassi</strong></h2>
-				</div>
-				<p align="center">Este produto é disponibilizado aos clientes para a recuperação de CHASSI, seja o mesmo sofrendo desgastes pelo tempo, ferrugem ou de outra natureza. Sua comercialização refere-se a aplicação de produtos autorizados, cuja garantia e cuidados em sua aplicação é exigida pela lei de segurança no trabalho.<br><i>
-				* Verifique disponibilidade serviço na loja de sua cidade.</i></p>
-
-
-			  </div>
-		  </div>
-
-
-</div>
-		  
-			<hr>
-		
-		  <div class="row">
-		  
-		  	<h1 align="center"><%= image_tag("logotipo.png", size: "100x100", alt: "ultravisao")  %> Ultravisão no Brasil</h1>
-		  
-		  
-		  		<h2 align="center">Verifique uma loja em sua cidade</h2>
-		  		<br>
-		  		<br>
-		  		<br>
-		  		<div align="center">
-		  
-		  			<%= link_to 'Lojas Ultravisão',  :estados , class: "botao btn btn-warning btn-lg" %>
-		  	  </div>
-
-
-		  </div>
-
-		  <br>
-		  <br>
-		  <br>
-		  <br>
-	
-
-		     <hr>
-
-		  <br>
-		  <br>
-		  <br>
-
-		  <div class="row">
-		  	<h1 align="center">Oportunidade de negócio</h1>
-		  		<h2 align="center">Converse conosco e saiba como se tornar um franqueado Ultravisão em sua cidade.</h2>
-
-		  		<div class="video">
-		  			<!-- 16:9 aspect ratio -->
-						<div class="embed-responsive embed-responsive-16by9">
-  					<iframe class="embed-responsive-item" src="http://www.youtube.com/v/dns6aVqTLY8&hl=pt_BR&fs=1&"></iframe>			
-  					</div>
-  	  		</div>
-
-
-					<br>
-		  		<br>
-		  		<br>
-		  		<div align="center">
-		  
-		  			<%= link_to 'Ultravisão Franchising',  welcome_franquias_path , class: "botao btn btn-warning btn-lg" %>
-
-
-
-		  </div>
-
-		  <br>
-		  <br>
-		  <br>
-		  <br>
-		  <br>
-
-		 
-		  <!-- <div class="footer">
-		  <br>
-		   <div class="container">
-		   <br>
-		   <p class="footerp">Empresa credenciada</p>
-		  <%= image_tag("denatran.png") %>
-
-
-		  </div>
-		  </div> -->
-
-
-
-
-
-
-
+		<!-- Public area --> 			  
+		<%= render partial: 'public_view' %>
 <% end %>
 
 
