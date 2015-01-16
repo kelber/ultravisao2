@@ -7,6 +7,7 @@ class WelcomeController < ApplicationController
     @managers = Manager.all
     @franqueados = Franqueado.all
     @vistoriadores = Vistoriadore.all
+   
   end
 
   def sobre

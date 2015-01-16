@@ -4,43 +4,50 @@
 <hr>
 
 	
-	<h2 align="center">Suporte: Veículos em aberto | colocar n.</h2>
+	<h2 align="center">Suporte: Veículos em aberto</h2>
 	<hr>
 	<% @comments.each do |comment| %>
 			
 		<div class="container">
 		
  			<% if comment.completed_at.blank? %>
+ 			
+ 			<h3 align="left"><%= comment.vehicle_name.name %></h3>
+
  			<div class="well">
- 				<h3 align="left">
-		  	<%= comment.vehicle_name.name %>
-		  	<br>
-		    <%= image_tag comment.image.thumb('400x200').url if comment.image_stored?  %>
-		 	  <%=  comment.body %>
-  	</h3>
-		  <% if comment.manager_id %>
-				<p><%= comment.manager.name  %></p>
-				<p><%= comment.manager.email %></p>
-		  <% elsif comment.franqueado_id %>
-				<p><%= comment.franqueado.name %></p>
-				<p><%= comment.franqueado.email %></p>
-    	 <% elsif comment.vistoriadore_id %>
-		    <h4>Postado por: <i><%= comment.vistoriadore.name %>  | <%= comment.vistoriadore.email %></i></h4>
-			 <% end %> 
-		    	<h5><strong>Postado: <%= time_ago_in_words(comment.created_at) %></strong></h5>
-			    <%= link_to 'Ampliar', vehicle_brands_path(@vehicle_brand) , class: "btn btn-info" %>
-   			<br>	
+ 				
+		  	<div class="row">
+				<div class="col-md-4">
+					 <!--  class="col-md-10" -->
+					  <%= image_tag comment.image.thumb('400x200').url if comment.image_stored?  %>
+				</div>
+				<div class="col-md-8">
+					<h3 align="center">
+					 	<i><%=  comment.body %></i>
+				</div>
+				 	</h3>	 	
+				</div>
 
-   			
+			  <% if comment.manager_id %>
+					<h4>Postado por: <i><%= comment.manager.name %>  | <%= comment.manager.email %></i></h4>
+					
+			  <% elsif comment.franqueado_id %>
+					<h4>Postado por: <i><%= comment.franqueado.name %>  | <%= comment.franqueado.email %></i></h4>
+	    	 <% elsif comment.vistoriadore_id %>
+			    <h4>Postado por: <i><%= comment.vistoriadore.name %>  | <%= comment.vistoriadore.email %></i></h4>
+				 <% end %> 
+			    	<h5><strong>Postado: <%= time_ago_in_words(comment.created_at) %></strong></h5>
+				    <%= link_to 'Ampliar', vehicle_brands_path(@vehicle_brand) , class: "btn btn-info" %>
+	   			<br>	
 
-
-
-<% end %>
+	   		</div>
+	   <% end %>
   </div>
   </div>
 
 	<% end %>
 
+	</div>
 
 
 

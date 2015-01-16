@@ -8,4 +8,8 @@ class Comment < ActiveRecord::Base
   belongs_to :manager
   belongs_to :franqueado
   belongs_to :vistoriadore
+
+
+#  scope :realizados, -> { where(commpleted_at: true) }
+
 end

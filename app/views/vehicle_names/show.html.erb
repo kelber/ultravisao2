@@ -26,11 +26,18 @@
 	<h2>Veja Comentários <span class="badge presentation"><%= @comments.count %></span></h2>
 		<% @comments.each do |comment| %>
 		<div class="well">
-		<h3> <!--  class="col-md-10" -->
-		  <%= image_tag comment.image.thumb('400x200').url if comment.image_stored?  %>
 
-		 	<i><%=  comment.body %></i>
-	 	</h3>	 	
+		<div class="row">
+		<div class="col-md-4">
+			 <!--  class="col-md-10" -->
+			  <%= image_tag comment.image.thumb('400x200').url if comment.image_stored?  %>
+		</div>
+		<div class="col-md-8">
+			<h3 align="center">
+			 	<i><%=  comment.body %></i>
+		</div>
+		 	</h3>	 	
+	  </div>
 
 		<% if comment.manager_id %>
 			<h4>Postado por: <i><%= comment.manager.name %>  | <%= comment.manager.email %></i></h4>

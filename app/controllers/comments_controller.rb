@@ -12,8 +12,7 @@ def show
 	 @vehicle_brand = VehicleBrand.find(params[:vehicle_brand_id])
 	 @vehicle_name = VehicleName.find(params[:vehicle_name_id])
    @comments = Comment.where(vehicle_name_id: @vehicle_name).order("created_at DESC")
-
-
+ 
 end
 
 
