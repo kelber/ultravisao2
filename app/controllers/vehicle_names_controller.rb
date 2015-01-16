@@ -1,5 +1,7 @@
 class VehicleNamesController < ApplicationController
 
+  before_action :authenticate_vistoriadore! || :authenticate_franqueado! ||  :authenticate_manager!
+
 	before_action :set_vehicle_brand
 	before_action :find_vehicle_name, only: [:show, :edit, :update, :destroy]
 

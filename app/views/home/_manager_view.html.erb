@@ -57,7 +57,7 @@
       <div class="panel-body">
       <p>
         <% @franqueados.each do |f|  %>
-                <p>Nome: <%= f.name %> |Criado em: <%= time_ago_in_words(f.created_at) %> |Ultimo acesso: <%= f.last_sign_in_at.strftime('%d/%m') %></p>
+                <p>Nome: <%= f.name %> |Criado em: <%= time_ago_in_words(f.created_at) %> |Ultimo acesso: <%= f.last_sign_in_at.strftime('%d/%m') %>|Qtd: <%= f.sign_in_count %></p>
                 <hr>
               <% end %>
       </div>
@@ -78,7 +78,7 @@
       <div class="panel-body">
       <p>
         <% @vistoriadores.each do |f|  %>
-                <p>Nome: <%= f.name %> |Criado em: <%= time_ago_in_words(f.created_at) %> |Ultimo acesso: <%= f.last_sign_in_at.strftime('%d/%m') %></p>
+                <p>Nome: <%= f.name %> |Criado em: <%= time_ago_in_words(f.created_at) %> |Ult.vez: <%= f.last_sign_in_at.strftime('%d/%m') %>|Qtd: <%= f.sign_in_count %> </p>
                 <hr>
               <% end %>
       </div>

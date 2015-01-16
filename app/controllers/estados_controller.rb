@@ -1,5 +1,7 @@
 class EstadosController < ApplicationController
 
+    before_action :authenticate_manager! , except: [:index, :show]
+
     before_action :find_estado , only: [:show, :destroy]
 
     def index

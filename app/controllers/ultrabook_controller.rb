@@ -1,5 +1,7 @@
 class UltrabookController < ApplicationController
  
+  before_action :authenticate_vistoriadore! || :authenticate_franqueado! ||  :authenticate_manager!
+
 	before_action :find_comment , only: [:show, :edit, :update, :upvote, :downvote]
 
 

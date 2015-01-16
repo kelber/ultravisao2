@@ -1,8 +1,9 @@
 class CidadesController < ApplicationController
 
+    before_action :authenticate_manager! , except: [:show]
 
-		before_action :set_estado
-		before_action :find_cidade, only: [:show, :destroy]
+	before_action :set_estado
+	before_action :find_cidade, only: [:show, :destroy]
 
 
     def show

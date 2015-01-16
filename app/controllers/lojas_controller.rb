@@ -1,5 +1,7 @@
 class LojasController < ApplicationController
   
+  before_action :authenticate_manager! , except: [:index, :show]
+
 	before_action :set_estado
 	before_action :set_cidade
 	before_action :find_loja, only: [:show, :edit, :update, :destroy]
