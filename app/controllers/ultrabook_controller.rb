@@ -1,6 +1,7 @@
 class UltrabookController < ApplicationController
  
-  before_action :authenticate_vistoriadore! || :authenticate_franqueado! ||  :authenticate_manager!
+
+  before_action :authenticate!
 
 	before_action :find_comment , only: [:show, :edit, :update, :upvote, :downvote]
 
@@ -29,6 +30,9 @@ end
 def comment_params
 	params.require(:comment).permit(:body, :vehicle_name_id, :manager_id, :franqueado_id, :vistoriadore_id, :image, :upvote, :downvote)
 end
+
+
+
 
 
 

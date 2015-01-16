@@ -4,7 +4,7 @@
 <hr>
 
 	
-	<h2 align="center">Suporte: Veículos em aberto</h2>
+	<h2 align="center">Suporte:</h2>
 	<hr>
 	<% @comments.each do |comment| %>
 			
@@ -36,9 +36,26 @@
 	    	 <% elsif comment.vistoriadore_id %>
 			    <h4>Postado por: <i><%= comment.vistoriadore.name %>  | <%= comment.vistoriadore.email %></i></h4>
 				 <% end %> 
-			    	<h5><strong>Postado: <%= time_ago_in_words(comment.created_at) %></strong></h5>
-				    <%= link_to 'Ampliar', vehicle_brands_path(@vehicle_brand) , class: "btn btn-info" %>
-	   			<br>	
+
+				 <h5><strong>Postado: <%= time_ago_in_words(comment.created_at) %></strong></h5>
+				 <%= link_to 'Ampliar', vehicle_brands_path(@vehicle_brand) , class: "btn btn-info" %>
+	   		
+
+	   			<%= link_to like_vehicle_brand_vehicle_name_comment_path(@vehicle_brand, @vehicle_name, comment), method: :get, class: "btn btn-default" do %>
+			<span class="fa fa-thumbs-o-up"> Aprovado |</span>
+			<%= comment.get_upvotes.size %>
+			<% end %>
+
+
+		<%= link_to dislike_vehicle_brand_vehicle_name_comment_path(@vehicle_brand, @vehicle_name, comment), method: :get, class: "btn btn-default" do %>
+			<span class="fa fa-thumbs-o-down"> Desaprovado |</span>
+			<%= comment.get_downvotes.size %>
+			<% end %>
+
+
+
+
+
 
 	   		</div>
 	   <% end %>

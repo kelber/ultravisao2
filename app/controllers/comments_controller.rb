@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
 
-	before_action :authenticate_vistoriadore! || :authenticate_franqueado! ||  :authenticate_manager!
+	before_action :authenticate!
 	
 	before_action :find_comment , only: [:show, :edit, :update, :upvote, :downvote, :complete]
 	before_action :find_all, only: [:complete] 
