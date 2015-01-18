@@ -14,6 +14,9 @@ gem 'devise'
 gem 'simple_form', '~> 3.1.0' 
 gem 'dragonfly', '~> 1.0.7'
 gem 'acts_as_votable', '~> 0.10.0'
+gem 'geocoder'
+gem 'gmaps4rails'
+
 
 
 group :development , :test  do
@@ -29,7 +32,7 @@ end
 
 group :production do
     gem 'pg'
-    gem 'rails_12factor'
+  #  gem 'rails_12factor'
 end
 
 

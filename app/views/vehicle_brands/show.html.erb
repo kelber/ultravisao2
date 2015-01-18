@@ -2,8 +2,8 @@
 
 <h1><%= image_tag("logotipo.png", size: "100x100", alt: "Ultravisao") %>  <%= @vehicle_brand.name %> | <%= @vehicle_names.count %> veículos cadastrados</h1>
 
-
-<%= link_to 'Voltar', vehicle_brands_path , class: "btn btn-default" %>
+<br>
+<%= link_to ' Voltar', vehicle_brands_path , class: "btn btn-default fa fa-angle-left" %>
 <br>
 <br>
 <%= link_to 'Cadastrar Veiculo' , new_vehicle_brand_vehicle_name_path(@vehicle_brand) , class: "btn btn-primary" %>
